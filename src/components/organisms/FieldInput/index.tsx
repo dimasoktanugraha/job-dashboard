@@ -1,28 +1,28 @@
-"use client"
- 
-import React, { FC, ReactNode } from 'react'
-import { Separator } from '@/components/ui/separator'
+"use client";
+
+import React, { FC, ReactNode } from "react";
+import { Separator } from "@/components/ui/separator";
 
 interface FieldInputProps {
-    children: ReactNode,
-    title: string,
-    subtitle: string
+  children: ReactNode;
+  title: string;
+  subtitle: string;
 }
 
-const FieldInput: FC<FieldInputProps> = ({children, title, subtitle}) =>  {
-    return (
-        <>
-            <div className='flex flex-row items-start'>
-                <div className='w-[35%]'>
-                    <div className='font-semibold'>{title}</div>
-                    <div className='text-gray-400 w-80'>{subtitle}</div>
-                </div>
-                {children}
-            </div>
+const FieldInput: FC<FieldInputProps> = ({ children, title, subtitle }) => {
+  return (
+    <>
+      <div className="flex flex-row items-start">
+        <div className="w-[35%]">
+          <div className="font-semibold">{title}</div>
+          <div className="text-gray-400 w-80">{subtitle}</div>
+        </div>
+        {children}
+      </div>
 
-            <Separator />
-        </>
-    )
-}
+      <Separator />
+    </>
+  );
+};
 
-export default FieldInput
+export default FieldInput;

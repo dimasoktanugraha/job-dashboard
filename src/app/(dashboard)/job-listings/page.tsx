@@ -11,10 +11,9 @@ import { JOB_LISTING_COLUMNS } from "@/constants";
 import { Badge } from "@/components/ui/badge";
 import TableAction from "@/components/organisms/TabelAction";
 import { getServerSession } from "next-auth";
-import { authOptions } from "@/app/api/auth/[...nextauth]/route";
 import prisma from "../../../../lib/prisma";
 import { Job } from "@prisma/client";
-import { dateFormat } from "@/lib/utils";
+import { authOptions, dateFormat } from "@/lib/utils";
 import moment from "moment";
 
 interface JobListingsPageProps {}

@@ -5,9 +5,9 @@ import Sidebar from "@/components/layouts/Sidebar";
 import Header from "@/components/layouts/Header";
 import NextAuthProvider from "@/context/NextAuthProvider";
 import { getServerSession } from "next-auth";
-import { authOptions } from "../api/auth/[...nextauth]/route";
 import { redirect } from "next/navigation";
 import { Toaster } from "@/components/ui/toaster";
+import { authOptions } from "@/lib/utils";
 
 const epilogue = Epilogue({ subsets: ["latin"] });
 
@@ -21,11 +21,10 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const session = await getServerSession(authOptions);
 
-  const session = await getServerSession(authOptions)
-
-  if (session === null){
-    return redirect('/auth/signin')
+  if (session === null) {
+    return redirect("/auth/signin");
   }
 
   return (
@@ -37,11 +36,11 @@ export default async function RootLayout({
               <div className="bg-background">
                 <div className="flex flex-row">
                   <div className="hidden lg:block w-[18%]">
-                    <Sidebar/>
+                    <Sidebar />
                   </div>
                   <div className="col-span-3 overflow-auto lg:col-span-5 lg:border-l w-[82%]">
                     <div className="px-6 py-6 lg:px-8">
-                      <Header/>
+                      <Header />
                       {children}
                     </div>
                   </div>
